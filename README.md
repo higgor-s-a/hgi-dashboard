@@ -156,5 +156,7 @@ Dashboard Final
 ## 📎 Contato
 
 **Higgor** – Analista / Cientista de Dados
+
 **Telefone:** 77 998132632
+
 **LinkedIn:** https://www.linkedin.com/in/higgor-sa/

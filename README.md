@@ -1,162 +1,211 @@
-# 📊 Dashboard de Indicadores da Emergência – AGHUse / HGI
+# 📊 Dashboard de Indicadores da Emergência – HGI / AGHUse
 
-## 📌 Visão Geral do Projeto
+## 📌 Visão Geral
 
-Este projeto apresenta a construção de um **dashboard analítico completo**, desenvolvido no **Power BI**, utilizando dados extraídos de **relatórios PDF mensais do AGHUse** (Aplicativo de Gestão Hospitalar) referentes à Emergência do **Hospital Geral de Ipiaú – BA (HGI)**. O projeto foi realizado de forma **voluntária** durante minha atuação como implantador do sistema, com o objetivo de apoiar a gestão hospitalar através de dados.
+Este projeto apresenta o desenvolvimento de um **dashboard analítico em Power BI** para monitoramento da operação da emergência do Hospital Geral de Ipiaú (HGI), utilizando dados extraídos de relatórios mensais do sistema hospitalar **AGHUse**.
 
-Por questões de sigilo, o dashboard original não pode ser disponibilizado. No entanto, este repositório contém um **protótipo com dados fictícios** e um PDF com **frames reais** do dashboard final.
+O projeto foi desenvolvido durante minha atuação como implantador do sistema na instituição, com o objetivo de **transformar dados operacionais em informações estratégicas para apoio à gestão hospitalar**.
 
----
+Por questões de confidencialidade, os dados originais não podem ser disponibilizados. Este repositório contém:
 
-## 🎯 Problema Identificado
-
-Apesar da grande quantidade de informações produzidas diariamente pela emergência, a instituição não possuía uma ferramenta que consolidasse os dados de forma clara e que permitisse análises históricas, visualização de padrões, identificação de gargalos e apoio à tomada de decisão.
-
-Os relatórios do AGHUse eram disponibilizados **apenas em PDF**, o que dificultava análises avançadas e a construção de indicadores.
+- Um **modelo de dashboard com dados fictícios**
+- Um **PDF com frames do dashboard real (anonimizados)**
 
 ---
 
-## 🎯 Objetivos do Projeto
+# 🎯 Problema de Negócio
 
-* Transformar relatórios PDF em dados utilizáveis.
-* Integrar **10 meses** de informações da emergência.
-* Criar um dashboard interativo, claro e orientado à decisão.
-* Entregar KPIs essenciais sobre fluxo assistencial, gravidade, demanda, diagnósticos e tempo de atendimento.
-* Permitir análises de comportamento, picos de demanda e tendência.
-* Apoiar direção e coordenação em decisões estratégicas.
+Apesar da grande quantidade de dados gerados diariamente pela emergência hospitalar, a instituição não possuía uma ferramenta que consolidasse essas informações de forma visual e analítica.
 
----
+Os relatórios do sistema **AGHUse** eram disponibilizados apenas em formato **PDF**, dificultando:
 
-## 📂 Fontes de Dados
-
-* **Relatórios mensais em PDF** do módulo de emergência do AGHUse.
-* Cada PDF contém estruturas tabulares distintas, exigindo padronização manual.
-* Não há acesso a SQL, banco ou API: toda a extração foi realizada a partir de PDFs.
+- análises históricas
+- identificação de padrões
+- monitoramento de indicadores
+- tomada de decisão baseada em dados
 
 ---
 
-## 🔧 Processo de Extração e Transformação
+# 🎯 Objetivos do Projeto
 
-1. **Download mensal** dos PDFs diretamente no AGHUse.
-2. Conversão dos PDFs para **Excel**.
-3. **Tratamento e padronização** das tabelas (campos, tipos, colunas ausentes, fusão de tabelas, datas, horas, padrões textuais).
-4. Uso do Power BI para:
+O projeto teve como objetivos principais:
 
-   * Clean-up final.
-   * Normalização de dados.
-   * Criação de relações.
-   * Construção de medidas em **DAX**.
-5. Construção do dashboard final.
+- Transformar **relatórios PDF em dados estruturados**
+- Consolidar **10 meses de dados da emergência**
+- Criar **indicadores operacionais e assistenciais**
+- Construir um **dashboard interativo para gestores**
+- Identificar **picos de demanda e gargalos operacionais**
 
 ---
 
-## 🧱 Arquitetura do Processo
+# 📂 Fonte dos Dados
 
-```
-AGHUse (PDF mensal)
-        ↓
+Relatórios mensais em PDF extraídos do sistema hospitalar **AGHUse**.
+
+Cada relatório contém diversas tabelas operacionais da emergência, incluindo:
+
+- fluxo de pacientes
+- tempos de atendimento
+- classificação de risco
+- diagnósticos
+- perfil demográfico
+
+Não havia acesso a banco de dados ou API, portanto **todo o processo de extração foi realizado a partir dos PDFs**.
+
+---
+
+# 🔧 Pipeline de Dados
+
+O fluxo de tratamento dos dados seguiu as seguintes etapas:
+
+AGHUse (Relatórios PDF mensais)
+↓
 Conversão PDF → Excel
-        ↓
-Tratamento e Padronização
-        ↓
+↓
+Tratamento e padronização das tabelas
+↓
 Importação no Power BI
-        ↓
-Modelagem • DAX • EDA
-        ↓
-Dashboard Final
-```
+↓
+Modelagem de dados
+↓
+Criação de medidas DAX
+↓
+Construção do dashboard analítico
+
+
+Principais etapas de transformação:
+
+- padronização de colunas
+- normalização de dados
+- tratamento de datas e horários
+- consolidação de múltiplas tabelas
+- criação de relacionamentos
 
 ---
 
-## 📊 KPIs Principais
+# 📊 Principais Indicadores (KPIs)
 
-### ⏱ Indicadores de Tempo
+## ⏱ Indicadores de Tempo
 
-* Tempo médio Chegada → Acolhimento
-* Tempo médio Chegada → Atendimento
-* Tempo médio Acolhimento → Atendimento
-* Tempo médio de Atendimento
-* Tempo médio por hora (24h)
-* Tempo médio até a alta por classificação de risco
-* Máximo de dias em atendimento por gravidade
-
-### 📈 Indicadores Operacionais
-
-* Total de Entradas
-* Total de Atendimentos
-* Total de Pacientes
-* Total de Retornos
-* Total de Altas
-* Atendimentos por mês, dia, hora e turno
-* Atendimentos por Semana Epidemiológica
-* Distribuição por cidades e estados
-
-### 👶 Perfil dos Pacientes
-
-* Distribuição por sexo
-* Faixas etárias completas (0 a 80+)
-* Análise de atendimento neonatal
-
-### ⚠ Classificação de Risco (Protocolo Manchester)
-
-* Top 5 classificações de risco
-* Entradas por cor
-* Distribuição por sexo, idade e cidade
-
-### 🏥 Diagnósticos
-
-* Top 5 diagnósticos por atendimento
-* Top 15 diagnósticos gerais
-* Análises temáticas:
-
-  * Cefaleia
-  * Trauma
-  * Febre
-  * Alterações glicêmicas
-  * Ferimentos
-  * Ansiedade
-
-### 🔥 Ocorrências e Picos Críticos
-
-* Heatmap Hora × Mês
-* Horários de maior demanda
-* Identificação de gargalos
+- Tempo médio **Chegada → Acolhimento**
+- Tempo médio **Chegada → Atendimento**
+- Tempo médio **Acolhimento → Atendimento**
+- Tempo médio de atendimento
+- Tempo médio por hora (24h)
+- Tempo médio até alta por classificação de risco
 
 ---
 
-## 📌 Principais Insights (exemplo com dados fictícios)
+## 📈 Indicadores Operacionais
 
-* Horários críticos concentrados entre **08h e 14h**.
-* Diagnósticos mais frequentes relacionados a **dor**, **gastroenterites**, **cefaleia** e **trauma**.
-* Adultos jovens e adultos representam mais da metade dos atendimentos.
-* Grande fluxo de pacientes de cidades da região, não apenas de Ipiaú.
-* Picos de atendimento semanais e variação mensal relevante.
-
----
-
-## 🧠 Habilidades Desenvolvidas
-
-* Extração e manipulação de dados não estruturados (PDF)
-* EDA no contexto hospitalar
-* Power BI (DAX, modelagem, relacionamentos)
-* Storytelling com dados
-* Construção de KPIs de saúde
-* Entendimento de operação hospitalar de emergência
+- Total de entradas
+- Total de atendimentos
+- Total de pacientes
+- Total de retornos
+- Total de altas
+- Atendimentos por mês
+- Atendimentos por dia da semana
+- Atendimentos por turno
+- Atendimentos por semana epidemiológica
 
 ---
 
-## 📁 Arquivos do Repositório
+## 👶 Perfil dos Pacientes
 
-* `projeto-treinamento-hgi-melhorado.pbix` → Modelo fictício
-* `hgi-analise.pdf` → Frames do dashboard real (dados anonimizados)
-* README.md (este arquivo)
+- Distribuição por sexo
+- Faixa etária completa (0 a 80+)
+- Análise de atendimento neonatal
 
 ---
 
-## 📎 Contato
+## ⚠ Classificação de Risco (Protocolo Manchester)
 
-**Higgor** – Analista / Cientista de Dados
+- Distribuição por cores de risco
+- Top classificações de risco
+- Análise por sexo e idade
 
-**Telefone:** 77 998132632
+---
 
-**LinkedIn:** https://www.linkedin.com/in/higgor-sa/
+## 🏥 Diagnósticos
+
+- Top 5 diagnósticos por atendimento
+- Top 15 diagnósticos gerais
+- Análise de diagnósticos por categorias clínicas
+
+---
+
+# 🔥 Análise de Picos de Atendimento
+
+Foi desenvolvido um **heatmap Hora × Mês** para identificar padrões de demanda.
+
+Principais análises:
+
+- horários de maior demanda
+- variações mensais
+- identificação de possíveis gargalos no fluxo de atendimento
+
+---
+
+# 📊 Exemplos de Insights
+
+Com base na análise dos dados (exemplo com dados fictícios):
+
+- Maior volume de atendimentos entre **08h e 14h**
+- Predominância de atendimentos em **adultos jovens e adultos**
+- Alta incidência de diagnósticos relacionados a:
+  - cefaleia
+  - trauma
+  - gastroenterites
+  - febre
+- Fluxo significativo de pacientes provenientes de **cidades da região**, não apenas de Ipiaú
+
+---
+
+# 🧠 Habilidades Demonstradas
+
+Este projeto envolveu o desenvolvimento de competências importantes em análise de dados:
+
+- Extração de dados não estruturados (PDF)
+- Limpeza e padronização de dados
+- Análise exploratória de dados (EDA)
+- Modelagem de dados no Power BI
+- Criação de métricas e KPIs com DAX
+- Visualização de dados
+- Storytelling com dados
+
+---
+
+# 🛠 Tecnologias Utilizadas
+
+- Power BI
+- DAX
+- Excel
+- Data Cleaning
+- Análise Exploratória de Dados (EDA)
+
+---
+
+# 📁 Arquivos do Repositório
+
+- projeto-treinamento-hgi-melhorado.pbix → modelo de dashboard com dados fictícios
+- hgi-analise.pdf → frames do dashboard real (dados anonimizados)
+- README.md → documentação do projeto
+
+
+---
+
+# 📌 Observação
+
+Os dados originais não podem ser divulgados devido a restrições de confidencialidade institucional. O objetivo deste repositório é demonstrar o **processo analítico, a modelagem e a construção do dashboard**.
+
+---
+
+# 👤 Autor
+
+**Higgor Sampaio Alves**
+
+Graduando em Ciência de Dados  
+Jequié – BA
+
+GitHub  
+https://github.com/higgor-s-a

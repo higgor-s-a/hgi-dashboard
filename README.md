@@ -14,18 +14,19 @@ A gestão de emergências hospitalares enfrenta desafios como:
 
 * Alto volume de atendimentos
 * Longos tempos de espera
+* Sobrecarga da equipe médica
 * Dificuldade na identificação de gargalos operacionais
 
-Diante disso, surge a necessidade de transformar dados operacionais em informações estratégicas para apoiar a tomada de decisão.
+Diante disso, torna-se essencial transformar dados operacionais em informações estratégicas para apoiar a tomada de decisão.
 
 ---
 
 ## 🧩 Objetivo
 
 * Analisar o fluxo de pacientes na emergência
-* Identificar padrões de demanda ao longo do tempo
+* Identificar padrões de demanda
 * Avaliar tempos de atendimento
-* Apoiar decisões relacionadas à alocação de recursos
+* Apoiar decisões operacionais e estratégicas
 
 ---
 
@@ -38,44 +39,61 @@ Diante disso, surge a necessidade de transformar dados operacionais em informaç
 ### 🔹 Transformação (Transform)
 
 * Limpeza e padronização dos dados
-* Tratamento de valores ausentes
-* Integração de múltiplos períodos (12 meses - 2025)
+* Tratamento de inconsistências
+* Integração de 10 meses de dados operacionais
 * Criação de variáveis analíticas
 
 ### 🔹 Carga (Load)
 
-* Modelagem dos dados no Power BI
+* Modelagem no Power BI
 * Construção de dashboard interativo
 
 ---
 
-## 📊 Principais Insights
+## 📊 Dashboard e Principais Insights
 
-* ⏱️ O tempo médio de atendimento na emergência ultrapassa **8 horas**, indicando possível sobrecarga operacional
-* 📈 Há maior concentração de atendimentos durante o período diurno
-* 🟢 A maioria dos atendimentos é classificada como **baixa gravidade (verde e amarelo)**
-* 🧠 Os principais motivos de atendimento estão relacionados a **dores e sintomas clínicos gerais**
-* 🔁 Alto volume de retornos pode indicar necessidade de melhoria na resolutividade dos atendimentos
-
----
-
-## 📷 Dashboard
-
-### Visão Geral
+### 🔹 Visão Geral do Sistema
 
 ![Visão Geral](./images/overview.png)
 
-### Indicadores Principais
+**Insight:**
+O volume total de atendimentos (mais de 45 mil) indica alta demanda contínua na emergência, sugerindo pressão operacional constante ao longo do período analisado.
+
+---
+
+### 🔹 Indicadores Estratégicos (KPIs)
 
 ![KPIs](./images/kpis.png)
 
-### Análise de Tempo de Atendimento
+**Insight:**
+O tempo médio total de atendimento ultrapassa **8 horas**, evidenciando um possível gargalo operacional e indicando necessidade de otimização no fluxo de atendimento.
+
+---
+
+### 🔹 Tempo de Atendimento
 
 ![Tempo](./images/tempo_atendimento.png)
 
-### Análise de Demanda
+**Insight:**
+Os tempos de espera variam ao longo do dia, com aumento em horários de maior demanda, sugerindo desalinhamento entre volume de pacientes e capacidade de atendimento.
+
+---
+
+### 🔹 Padrão de Demanda
 
 ![Demanda](./images/demanda.png)
+
+**Insight:**
+A maior concentração de atendimentos ocorre durante o período diurno, indicando necessidade de maior alocação de recursos nesses horários para reduzir sobrecarga.
+
+---
+
+### 🔹 Perfil dos Atendimentos (Gravidade)
+
+![Gravidade](./images/gravidade.png)
+
+**Insight:**
+A predominância de casos classificados como **baixa gravidade (verde e amarelo)** sugere uso da emergência para atendimentos não críticos, impactando o tempo de espera para casos mais graves.
 
 ---
 
@@ -91,10 +109,11 @@ Diante disso, surge a necessidade de transformar dados operacionais em informaç
 
 Este projeto permite:
 
-* Identificar gargalos no fluxo de atendimento
-* Apoiar a tomada de decisão na gestão hospitalar
-* Melhorar a alocação de recursos
-* Contribuir para redução de tempo de espera
+* Identificar gargalos no atendimento
+* Apoiar decisões de alocação de equipe
+* Melhorar a eficiência operacional
+* Reduzir tempos de espera
+* Otimizar o fluxo de pacientes
 
 ---
 
@@ -107,8 +126,25 @@ Este projeto permite:
 
 ---
 
+## 📁 Estrutura do Repositório
+
+```
+📁 hgi-dashboard
+ ┣ 📄 README.md
+ ┣ 📄 dashboard_emergencia_hospitalar.pdf
+ ┣ 📁 images
+ ┃ ┣ overview.png
+ ┃ ┣ kpis.png
+ ┃ ┣ tempo_atendimento.png
+ ┃ ┣ demanda.png
+ ┃ ┗ gravidade.png
+```
+
+---
+
 ## 👨‍💻 Autor
 
 **Higgor Sampaio Alves**
-🔗 [LinkedIn](https://linkedin.com/in/higgor-sa)
-🔗 [GitHub](https://github.com/higgor-s-a)
+
+🔗 LinkedIn: https://linkedin.com/in/higgor-sa
+🔗 GitHub: https://github.com/higgor-s-a

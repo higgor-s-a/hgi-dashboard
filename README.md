@@ -31,7 +31,7 @@ Os relatórios do sistema **AGHUse** eram disponibilizados apenas em formato **P
 O projeto teve como objetivos principais:
 
 - Transformar **relatórios PDF em dados estruturados**
-- Consolidar **10 meses de dados da emergência**
+- Consolidar **1 (um) ano (2025) de dados da emergência**
 - Criar **indicadores operacionais e assistenciais**
 - Construir um **dashboard interativo para gestores**
 - Identificar **picos de demanda e gargalos operacionais**
